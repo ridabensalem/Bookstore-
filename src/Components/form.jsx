@@ -16,9 +16,6 @@ const Form = () => (
       <button type="submit"> Add</button>
       {' '}
       <br />
-      {' '}
-      <br />
-      <button type="submit">Remove</button>
     </form>
   </>
 );
