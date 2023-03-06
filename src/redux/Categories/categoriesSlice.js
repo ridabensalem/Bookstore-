@@ -12,4 +12,4 @@ const categoriesSlice = createSlice({
     },
   },
 });
-export default categoriesSlice;
+export const { setStatus } = categoriesSlice.actions;
