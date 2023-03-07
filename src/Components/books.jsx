@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Form from './form';
 
 const Book = ({ title, author, onDelete }) => (
@@ -14,16 +15,11 @@ const Book = ({ title, author, onDelete }) => (
 );
 
 const BookList = () => {
-  const [books, setBooks] = React.useState([
-    { title: 'To survive a Mockingbird', author: 'Harper Lee' },
-    { title: 'The walker', author: 'George Orwell' },
-    { title: 'The Great Gatsby', author: 'F. Scott Fitzgerald' },
-  ]);
+  const books = useSelector((state) => state.books);
 
   const handleDelete = (index) => {
     const newBooks = [...books];
     newBooks.splice(index, 1);
-    setBooks(newBooks);
   };
 
   const booksWithIds = books.map((book, index) => ({
