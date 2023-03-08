@@ -1,18 +1,23 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { addBook, removeBook } from '../redux/Books/BooksSclice';
 import Form from './form';
 
-const Book = ({ title, author, onDelete }) => (
-  <div>
+const Book = ({ title, author, key }) => {
+  const dispatch = useDispatch();
+  return(<div>
     <h2>{title}</h2>
     <p>
       by
       {' '}
       {author}
-      <button type="submit" onClick={onDelete}>Delete</button>
+      <button type="button" onClick={()=>dispatch(removeBook(key))}>Delete</button>
+      
     </p>
-  </div>
-);
+  </div>)
+  
+};
 
 const BookList = () => {
   const books = useSelector((state) => state.books);
@@ -34,10 +39,10 @@ const BookList = () => {
           key={book.id}
           title={book.title}
           author={book.author}
-          onDelete={() => handleDelete(book.id)}
+          onDelete={() => dispatch(removeBook(book.id))}
         />
       ))}
-      <Form />
+      <Form onSubmit={()=>dispatch(addBook())}/>
     </div>
   );
 };
