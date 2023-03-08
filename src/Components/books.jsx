@@ -1,48 +1,36 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { addBook, removeBook } from '../redux/Books/BooksSclice';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeBook } from '../redux/Books/BooksSclice';
 import Form from './form';
 
-const Book = ({ title, author, key }) => {
+const Book = ({ title, author, id }) => {
   const dispatch = useDispatch();
-  return(<div>
-    <h2>{title}</h2>
-    <p>
-      by
-      {' '}
-      {author}
-      <button type="button" onClick={()=>dispatch(removeBook(key))}>Delete</button>
-      
-    </p>
-  </div>)
-  
+  return (
+    <div>
+      <h2>{title}</h2>
+      <p>
+        {author}
+        <button type="button" onClick={() => dispatch(removeBook(id))}>Delete</button>
+
+      </p>
+    </div>
+  );
 };
 
 const BookList = () => {
-  const books = useSelector((state) => state.books);
-
-  const handleDelete = (index) => {
-    const newBooks = [...books];
-    newBooks.splice(index, 1);
-  };
-
-  const booksWithIds = books.map((book, index) => ({
-    ...book,
-    id: index,
-  }));
+  const books = useSelector((state) => state.booksReducer.books);
 
   return (
     <div>
-      {booksWithIds.map((book) => (
+      {books.map((book) => (
         <Book
-          key={book.id}
+          key={book.item_id}
+          id={book.item_id}
           title={book.title}
           author={book.author}
-          onDelete={() => dispatch(removeBook(book.id))}
         />
       ))}
-      <Form onSubmit={()=>dispatch(addBook())}/>
+      <Form />
     </div>
   );
 };
