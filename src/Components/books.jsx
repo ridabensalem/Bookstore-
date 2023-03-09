@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { removeBook } from '../redux/Books/BooksSclice';
 import Form from './form';
 
-const Book = ({ title, author, id }) => {
+function Book({ title, author, id }) {
   const dispatch = useDispatch();
   return (
     <div>
@@ -15,9 +15,9 @@ const Book = ({ title, author, id }) => {
       </p>
     </div>
   );
-};
+}
 
-const BookList = () => {
+function BookList() {
   const books = useSelector((state) => state.booksReducer.books);
 
   return (
@@ -33,6 +33,6 @@ const BookList = () => {
       <Form />
     </div>
   );
-};
+}
 
 export default BookList;
