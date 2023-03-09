@@ -1,11 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import booksSlice from './Books/BooksSclice';
-import categoriesSlice from './Categories/categoriesSlice';
+import categoriesReducer from './Categories/categoriesSlice';
+import booksReducer from './Books/BooksSclice';
 
 const store = configureStore({
   reducer: {
-    books: booksSlice.reducer,
-    categories: categoriesSlice.reducer,
+    categoriesReducer,
+    booksReducer,
   },
 });
+
 export default store;
