@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeBook } from '../redux/Books/BooksSclice';
+import { useEffect } from 'react';
+import { removeBook,fetchBooks  } from './API';
 import Form from './form';
-
 function Book({ title, author, id }) {
   const dispatch = useDispatch();
   return (
@@ -19,6 +19,11 @@ function Book({ title, author, id }) {
 
 function BookList() {
   const books = useSelector((state) => state.booksReducer.books);
+  console.log(books);
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    dispatch(fetchBooks());
+    },[dispatch])
 
   return (
     <div>
