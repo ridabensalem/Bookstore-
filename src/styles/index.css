@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab&display=swap');
+@import 'navbar.css';
+@import 'book.css';
+@import 'form.css';
+@import 'graphic.module.css';
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --azure: #0290ff;
+  --white-two: #fff;
+  --black-two: #121212;
+  --cool-blue: #4386bf;
+  --pale-grey: #f5f6fa;
+  --dark-gray: rgb(95, 95, 95);
+  --z: #fafafa;
+}
+
+.container {
+  width: 100%;
+  height: 89.625rem;
+  padding: 9.313rem 3.75rem 7.688rem 6.25rem;
+  background-color: var(--pale-grey);
+}
+
+.card {
+  width: 87.5rem;
+  height: 68.563rem;
+  margin: 0 2.5rem 4.063rem 0;
+  padding: 0 0 49.625rem;
+  border-radius: 4px;
+  box-shadow: 0 0 60px 0 rgb(63, 63, 63);
+  background-color: var(--z);
+}
+
+.panel {
+  width: 87.5rem;
+  height: 68.563rem;
+  margin: 0 2.8rem 4.063rem 0;
+  padding: 0 0 49.625rem;
+  border-radius: 4px;
+  box-shadow: 0 0 60px 0 var(--black-5);
+  background-color: rgb(22, 153, 22);
+}
