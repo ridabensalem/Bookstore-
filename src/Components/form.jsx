@@ -21,20 +21,20 @@ function Form() {
     dispatch(addBook(state));
   };
   return (
+
     <form action="#" method="post" className="contact_form">
-      <h1>ADD NEW BOOK</h1>
-      <input className="form_item" id="book_title" type="text" name="title" placeholder="Book title" maxLength="30" onChange={handleChange} required />
-      {' '}
-      <br />
-      {' '}
-      <br />
-      <input className="form_item" id="book_author" type="text" name="author" placeholder="Author" onChange={handleChange} required />
-      {' '}
-      <br />
-      {' '}
-      <br />
-      <button type="button" className="form_button" onClick={handleSubmit}>ADD BOOK</button>
+      <span className="form-title">ADD A new Book </span>
+      <div className="form-input">
+        <input className="form_book" id="book_title" type="text" name="title" placeholder="book" onChange={handleChange} required />
+        <input className="form_author" id="book_author" type="text" name="author" placeholder="Author" onChange={handleChange} required />
+        <button type="button" className="form-btn-submit">
+          {' '}
+          <a onClick={handleSubmit}> ADD BOOK</a>
+        </button>
+      </div>
+
     </form>
+
   );
 }
 
