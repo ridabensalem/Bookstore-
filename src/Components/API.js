@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const BaseURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/sOPMWbl48xIdH6XDvYYa/books';
-
+// Fetching Books 
 export const fetchBooks = createAsyncThunk(
   'books/fetchBooks',
   async () => {
@@ -16,7 +16,7 @@ export const fetchBooks = createAsyncThunk(
     return books;
   },
 );
-
+// adding Books
 export const addBook = createAsyncThunk(
   'books/addBook',
   async (bookData) => {
